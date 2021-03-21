@@ -39,7 +39,7 @@ connection.connect((err) => {
 app.get('/', (req, res) => {
 	res.json({
 		success: true,
-		message: 'Hello World. This processor's architecture is ${process.arch} and the current platform is ${process.platform}'
+		message: 'Hello World. This processor runs on ${process.arch} architecture and the current platform is ${process.platform}'
 	});
 });
 
