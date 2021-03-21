@@ -1,0 +1,18 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "Sample App",
+  "main": "app.js",
+  "dependencies": {
+    "ejs": "latest",
+    "aws-sdk": "latest",
+    "express": "latest",
+    "body-parser": "latest",
+    "mysql": "latest"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "YoYo",
+  "license": "MIT"
+}
