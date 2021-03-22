@@ -39,11 +39,11 @@ connection.connect((err) => {
 app.get('/', (req, res) => {
 	res.json({
 		success: true,
-		message: 'Hello World. This processor runs on ${process.arch} architecture and the current platform is ${process.platform}'
+		message: 'Yaaay! Something is working!'
 	});
 });
 
-// insert a student into database
+// insert a record into database
 app.post('/add', (req, res) => {
 	const demo = req.body;
 	const query = 'INSERT INTO mytable values(?, ?)';
