@@ -13,7 +13,7 @@ const HOST = process.env.HOST || '0.0.0.0';
 
 // mysql credentials
 const connection = mysql.createConnection({
-	host: process.env.RDS_HOSTNAME || '172.17.0.2',
+	host: process.env.RDS_HOSTNAME || 'mysql-service',
 	user: process.env.RDS_USERNAME || 'root',
 	password: process.env.RDS_PASSWORD || 'password',
 	database: process.env.RDS_DATABASE || 'colors',
