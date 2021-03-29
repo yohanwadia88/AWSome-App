@@ -1,5 +1,18 @@
-const app = require('express')();
-const mysql = require('mysql');
+const AWSXRay = require('aws-xray-sdk');
+const XRayExpress = AWSXRay.express;
+const express = require('express');
+
+// Capture all AWS clients we create
+const AWS = AWSXRay.captureAWS(require('aws-sdk'));
+AWS.config.update({region: process.env.DEFAULT_AWS_REGION || 'eu-west-1'});
+
+// const app = require('express')();
+// const mysql = require('mysql');
+
+const mysql = AWSXRay.captureMySQL(require('mysql'));
+
+const app = express();
+app.use(XRayExpress.openSegment('DemoApp'));
 
 const bodyParser = require('body-parser');
 
@@ -82,3 +95,5 @@ app.post('/get', (req, res) => {
     	}
     });
 });
+
+app.use(XRayExpress.closeSegment());

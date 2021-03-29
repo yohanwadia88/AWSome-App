@@ -4,10 +4,11 @@
   "description": "Sample App",
   "main": "app.js",
   "dependencies": {
-    "ejs": "latest",
     "aws-sdk": "latest",
-    "express": "latest",
+    "aws-xray-sdk": "^3.2.0",
     "body-parser": "latest",
+    "ejs": "latest",
+    "express": "latest",
     "mysql": "latest"
   },
   "scripts": {
