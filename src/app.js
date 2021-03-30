@@ -1,6 +1,7 @@
-const AWSXRay = require('aws-xray-sdk');
-const XRayExpress = AWSXRay.express;
 const express = require('express');
+
+const AWSXRay = require('aws-xray-sdk-core');
+const XRayExpress = require('aws-xray-sdk-express');
 
 // Capture all AWS clients we create
 const AWS = AWSXRay.captureAWS(require('aws-sdk'));
