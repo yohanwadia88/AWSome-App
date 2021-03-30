@@ -6,8 +6,8 @@ const express = require('express');
 const AWS = AWSXRay.captureAWS(require('aws-sdk'));
 AWS.config.update({region: process.env.DEFAULT_AWS_REGION || 'eu-west-1'});
 
-// const app = require('express')();
-// const mysql = require('mysql');
+AWSXRay.config([AWSXRay.plugins.ECSPlugin]);
+AWSXRay.middleware.enableDynamicNaming();
 
 const mysql = AWSXRay.captureMySQL(require('mysql'));
 
@@ -52,7 +52,7 @@ connection.connect((err) => {
 app.get('/', (req, res) => {
 	res.json({
 		success: true,
-		message: 'Yaaay! Something is working!'
+		message: 'This is not a test! You are now entering the Phantom Zone!'
 	});
 });
 
