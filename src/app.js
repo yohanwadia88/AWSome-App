@@ -1,5 +1,5 @@
 const express = require('express');
-
+const mysql = require('mysql');
 const AWSXRay = require('aws-xray-sdk-core');
 const XRayExpress = require('aws-xray-sdk-express');
 
@@ -10,7 +10,7 @@ AWS.config.update({region: process.env.DEFAULT_AWS_REGION || 'eu-west-1'});
 AWSXRay.config([AWSXRay.plugins.ECSPlugin]);
 AWSXRay.middleware.enableDynamicNaming();
 
-const mysql = AWSXRay.captureMySQL(require('mysql'));
+// const mysql = AWSXRay.captureMySQL(require('mysql'));
 
 const app = express();
 app.use(XRayExpress.openSegment('DemoApp'));
